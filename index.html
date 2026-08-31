@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My File Cloud - Register, login, and upload files with Firebase">
+  <title>My File Cloud</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section id="authPage" class="card auth-card">
+      <div class="logo">☁️</div>
+      <h1>My File Cloud</h1>
+      <p class="subtitle">Login atau register untuk menyimpan file kamu.</p>
+
+      <div id="loginBox">
+        <h2>Login</h2>
+        <input id="loginNumber" type="text" inputmode="numeric" autocomplete="username"
+               placeholder="Nomor akun (angka saja)" maxlength="30">
+        <input id="loginPassword" type="password" autocomplete="current-password"
+               placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <p class="switch">Belum punya akun? <span id="showRegister">Register</span></p>
+      </div>
+
+      <div id="registerBox" class="hidden">
+        <h2>Register</h2>
+        <input id="registerNumber" type="text" inputmode="numeric" autocomplete="username"
+               placeholder="Nomor akun (angka saja)" maxlength="30">
+        <input id="registerPassword" type="password" autocomplete="new-password"
+               placeholder="Password (minimal 6 karakter)">
+        <input id="registerPassword2" type="password" autocomplete="new-password"
+               placeholder="Ulangi password">
+        <button id="registerBtn">Register</button>
+        <p class="switch">Sudah punya akun? <span id="showLogin">Login</span></p>
+      </div>
+
+      <div id="authMessage" role="alert"></div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <header class="topbar">
+        <div>
+          <h1>☁️ My File Cloud</h1>
+          <p id="welcome"></p>
+        </div>
+        <button id="logoutBtn" class="logout">Logout</button>
+      </header>
+
+      <section class="card">
+        <h2>Upload File</h2>
+        <label for="fileInput" class="dropzone" id="dropzone">
+          <span class="drop-icon">📁</span>
+          <strong>Pilih file atau tarik file ke sini</strong>
+          <small>File akan disimpan di akun kamu.</small>
+        </label>
+        <input id="fileInput" type="file" hidden>
+        <div id="fileName" class="selected-file">Belum ada file dipilih</div>
+        <button id="uploadBtn">📤 Upload</button>
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="uploadStatus" class="status"></p>
+      </section>
+
+      <section class="card">
+        <div class="files-header">
+          <div>
+            <h2>File Saya</h2>
+            <p class="muted">File hanya dapat dibaca oleh akun yang menguploadnya.</p>
+          </div>
+          <button id="refreshBtn" class="secondary">🔄 Refresh</button>
+        </div>
+        <div id="fileList">
+          <div class="empty">Belum ada file.</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
